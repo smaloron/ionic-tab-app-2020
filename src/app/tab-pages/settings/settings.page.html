@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label position="stacked">Couleur des boutons</ion-label>
+      <ion-select [(ngModel)]="settings.buttonColor">
+        <ion-select-option value="danger">rouge</ion-select-option>
+        <ion-select-option value="warning">orange</ion-select-option>
+        <ion-select-option value="success">vert</ion-select-option>
+        <ion-select-option value="secondary">cyan</ion-select-option>
+      </ion-select>
+      <ion-icon
+        name="square"
+        slot="start"
+        [color]="settings.buttonColor"
+      ></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>
