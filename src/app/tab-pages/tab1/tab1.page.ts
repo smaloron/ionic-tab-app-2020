@@ -3,6 +3,14 @@ import { SettingsService } from "src/app/services/settings.service";
 import { NoteService } from "src/app/services/note.service";
 import { NotesListService } from "src/app/services/notes-list.service";
 import { Router } from "@angular/router";
+import {
+  Plugins,
+  CameraResultType,
+  CameraSource,
+  CameraDirection,
+} from "@capacitor/core";
+
+const { Camera } = Plugins;
 
 @Component({
   selector: "app-tab1",
@@ -39,5 +47,16 @@ export class Tab1Page implements OnInit {
 
   ionViewDidEnter() {
     console.log("La page tab1 est affichée");
+  }
+
+  public async takePicture() {
+    const image = await Camera.getPhoto({
+      resultType: CameraResultType.Base64,
+      width: 500,
+      height: 500,
+      source: CameraSource.Prompt,
+      quality: 80,
+    });
+    this.noteService.getData().setPhoto(image.base64String);
   }
 }

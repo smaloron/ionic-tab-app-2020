@@ -9,5 +9,6 @@
 
 <ion-content class="ion-padding">
   <h2>{{ note.getTitle() }}</h2>
+  <ion-img *ngIf="note.getPhoto()" [src]="note.getImageBase64Link()"></ion-img>
   <p>{{ note.getText() }}</p>
 </ion-content>

@@ -10,7 +10,14 @@
       <ion-col size="12" *ngFor="let note of notesList">
         <ion-card [color]="note.getColor()">
           <ion-card-header>
-            <h3>{{ note.getTitle() }}</h3>
+            <ion-item>
+              <ion-label>
+                <ion-card-title>{{ note.getTitle() }}</ion-card-title>
+              </ion-label>
+              <ion-avatar slot="end" *ngIf="note.getPhoto()">
+                <ion-img [src]="note.getImageBase64Link()"></ion-img>
+              </ion-avatar>
+            </ion-item>
           </ion-card-header>
           <ion-card-content>
             <p>

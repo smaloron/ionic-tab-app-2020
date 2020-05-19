@@ -23,6 +23,7 @@ export class NoteListPage implements OnInit {
   ngOnInit() {
     this.notesListService.getNotes().then((data) => {
       this.notesList = data;
+      console.log(data);
     });
   }
 

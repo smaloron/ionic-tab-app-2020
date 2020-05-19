@@ -3,6 +3,7 @@ export class Note {
   private title: string;
   private text: string;
   private id: number;
+  private photo: string;
 
   constructor() {}
 
@@ -43,6 +44,19 @@ export class Note {
   }
 
   public getAbstract() {
-    return this.text.substr(0, 15) + "...";
+    return this.text.substr(0, 80) + "...";
+  }
+
+  public getPhoto(): string {
+    return this.photo;
+  }
+
+  public setPhoto(image: string) {
+    this.photo = image;
+    return this;
+  }
+
+  public getImageBase64Link() {
+    return "data:image/jpeg;base64," + this.photo;
   }
 }

@@ -58,5 +58,17 @@
     </ion-item>
   </ion-list>
 
+  <ion-item *ngIf="noteService.hasPicture()">
+    <ion-img [src]="noteService.getData().getImageBase64Link()"></ion-img>
+  </ion-item>
+
+  <ion-button
+    expand="block"
+    class="ion-margin-vertical"
+    (click)="takePicture()"
+  >
+    Prendre une photo
+  </ion-button>
+
   <ion-button expand="block" (click)="saveNote()">Valider</ion-button>
 </ion-content>

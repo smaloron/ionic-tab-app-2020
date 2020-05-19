@@ -22,7 +22,8 @@ export class NotesListService {
           .setText(item.text)
           .setTitle(item.title)
           .setId(item.id)
-          .setColor(item.color);
+          .setColor(item.color)
+          .setPhoto(item.photo);
         return note;
       });
       return this.notesList;
@@ -31,6 +32,7 @@ export class NotesListService {
 
   public addNote(note: Note) {
     note.setId(new Date().getTime());
+    console.log(note);
     this.notesList.push(note);
     this.storage.setObject("notes", this.notesList);
     this.noteService.wipe();

@@ -43,4 +43,8 @@ export class NoteService {
   public isUpdated() {
     return this.data.getId();
   }
+
+  public hasPicture() {
+    return this.data.getPhoto();
+  }
 }
